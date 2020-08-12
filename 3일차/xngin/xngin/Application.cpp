@@ -57,8 +57,8 @@ case WM_DESTROY:
 	}
 	return DefWindowProc(hWnd, iMessage, wParam, lParam);
 }
-HWND Application::FloatWindow(HINSTANCE hInstance, int cmdShow) {
-	hWnd = CreateWindow(PROGRAM_NAME, PROGRAM_NAME, WS_OVERLAPPED, CW_USEDEFAULT, CW_USEDEFAULT, SCREEN_WIDTH, SCREEN_HEIGHT, NULL, (HMENU)NULL, hInstance, NULL);
+HWND Application::FloatWindow(HINSTANCE hInstance, int cmdShow) { // 3번째 변수에 WS_OVERLAPPED(표시 x) WS_OVERLAPPEDWINDOW(표시 o) 같은건 오른쪽 위에 최소화 최대화 닫기 표기를 할지말지 정할 수 있음.
+	hWnd = CreateWindow(PROGRAM_NAME, PROGRAM_NAME, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, SCREEN_WIDTH, SCREEN_HEIGHT, NULL, (HMENU)NULL, hInstance, NULL);
 	ShowWindow(hWnd, cmdShow);
 	return hWnd;
 }

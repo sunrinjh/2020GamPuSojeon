@@ -1,1 +1,2 @@
-﻿  xngin.vcxproj -> D:\20510\2020GamPuSojeon\3일차\xngin\Debug\xngin.exe
+﻿  main.cpp
+LINK : fatal error LNK1168: D:\20510\2020GamPuSojeon\3일차\xngin\Debug\xngin.exe을(를) 쓰기용으로 열 수 없습니다.

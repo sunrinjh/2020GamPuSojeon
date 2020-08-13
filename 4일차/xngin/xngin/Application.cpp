@@ -63,8 +63,6 @@ HWND Application::FloatWindow(HINSTANCE hInstance, int cmdShow) { // 3¹øÂ° º¯¼ö¿
 	return hWnd;
 }
 int Application::DoMainLoop(Scene* firstscene) {
-	InitDeltaTime();
-	InitManager();
 	sceneManager->ChangeScene(firstscene);
 
 	MSG Message = { 0, };

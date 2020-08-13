@@ -4,11 +4,11 @@
 class TextureManager
 {
 private:
-	std::map<char*, LPDIRECT3DTEXTURE9> textureMap;
+	std::map<const char*, LPDIRECT3DTEXTURE9> textureMap;
 public:
 	TextureManager();
 	~TextureManager();
-	LPDIRECT3DTEXTURE9 LoadTextureFromFile(char* path);
+	LPDIRECT3DTEXTURE9 LoadTextureFromFile(const char* path);
 
 };
 

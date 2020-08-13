@@ -13,6 +13,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR, INT cmdS
 	std::cout << "Hello, Xngin Console!" << std::endl;
 	app.InitWindow(hInstance);
 	app.InitD3D(app.FloatWindow(hInstance, cmdShow));
-	
+	app.InitDeltaTime();
+	app.InitManager();
 	return app.DoMainLoop(new Scene());
 }

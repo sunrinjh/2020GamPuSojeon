@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Sprite.h"
-Sprite::Sprite(char* path) {
+Sprite::Sprite(const char* path) {
 	texture = textureManager->LoadTextureFromFile(path);
 
 	D3DSURFACE_DESC desc;

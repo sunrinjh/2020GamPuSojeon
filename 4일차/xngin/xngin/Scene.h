@@ -8,8 +8,8 @@ private:
 public:
 	Scene();
 	~Scene();
-	void Render();
-	void Update(float dTime);
+	virtual void Render();
+	virtual void Update(float dTime);
 
 	void AddObject(Object* object);
 	void RemoveObject(Object* object);

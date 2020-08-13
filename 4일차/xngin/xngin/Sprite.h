@@ -12,7 +12,7 @@ private:
 	int height;
 
 public:
-	Sprite(char* path);
+	Sprite(const char* path);
 	~Sprite();
 	void Render();
 	int getWidth();

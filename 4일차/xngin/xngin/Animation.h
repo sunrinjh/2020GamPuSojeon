@@ -20,6 +20,6 @@ public:
 
 	void Render();
 	void Update(float dTime);
-	void AddFrame(char* path);
+	void AddFrame(const char* path);
 };
 

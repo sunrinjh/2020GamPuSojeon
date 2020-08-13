@@ -27,11 +27,12 @@ public:
 
 	void AddChild(Object* child);
 	void RemoveChild(Object* child);
-	bool IsCollisionRect(D3DXVECTOR2 p1, D3DXVECTOR2 p2, RECT r1, RECT r2);
-	bool IsPointInRect(D3DXVECTOR2 p, RECT r, D3DXVECTOR2 pt);
+	bool IsCollisionRect(Object* object);
+	bool IsPointInRect(D3DXVECTOR2 p);
 
 	D3DXMATRIX getMat();
 	D3DXVECTOR2 getPos();
+	RECT getRect();
 
 	int getPosX();
 	int getPosY();

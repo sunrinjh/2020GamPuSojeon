@@ -74,7 +74,6 @@ int Application::DoMainLoop(Scene* firstscene) {
 		pd3dDevice->Clear(0, NULL, D3DCLEAR_TARGET, BG_COLOR, 1.0f, 0);
 		pd3dDevice->BeginScene();
 		pd3dSprite->Begin(D3DXSPRITE_ALPHABLEND);
-
 		sceneManager->Render();
 		pd3dSprite->End();
 		pd3dDevice->EndScene();
@@ -84,6 +83,7 @@ int Application::DoMainLoop(Scene* firstscene) {
 	}
 	DeleteManager();
 	ReleaseD3D();
+
 	return (int)Message.wParam;
 }
 void Application::DeleteManager() {
@@ -97,7 +97,7 @@ void Application::ReleaseD3D() {
 	SAFE_RELEASE(pd3d);
 }
 float Application::getDeltaTime() {
-	QueryPerformanceFrequency(&currentInterval);
+	QueryPerformanceCounter(&currentInterval);
 	LONGLONG interval = (currentInterval.QuadPart - beforeInterval.QuadPart);
 	float dTime = (float)interval / (float)Frequency.QuadPart;
 	beforeInterval = currentInterval;

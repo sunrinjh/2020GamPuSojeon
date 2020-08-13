@@ -2,8 +2,8 @@
 
 //프로그램 세팅
 #define CONSOLE_ON true // 디버그 할 콘솔 켤건지 끌건지
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 768
 #define BG_COLOR D3DCOLOR_ARGB(255,255,255,255)
 #define PROGRAM_NAME TEXT("Xngin")
 #define CONSOLE_NAME TEXT("Xngin Console")

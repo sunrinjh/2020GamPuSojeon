@@ -42,34 +42,32 @@ void Object::RemoveChild(Object* child) {
 	childList.remove(child);
 	child->parent = nullptr;
 }
-bool Object::IsCollisionRect(D3DXVECTOR2 p1, D3DXVECTOR2 p2, RECT r1, RECT r2) {
-	RECT r;
+bool Object::IsCollisionRect(Object* object) {
+	RECT r, r1 = rect, r2 = object->getRect();
 
-	r1.left += p1.x;
-	r1.right += p1.x;
-	r1.top += p1.y;
-	r1.bottom += p1.y;
+	r1.left += pos.x;
+	r1.right += pos.x;
+	r1.top += pos.y;
+	r1.bottom += pos.y;
 
-	r2.left += p2.x;
-	r2.right += p2.x;
-	r2.top += p2.y;
-	r2.bottom += p2.y;
+	r2.left += object->getPosX();
+	r2.right += object->getPosX();
+	r2.top += object->getPosY();
+	r2.bottom += object->getPosY();
 
 	return IntersectRect(&r, &r1, &r2);
 }
-bool Object::IsPointInRect(D3DXVECTOR2 p, RECT r, D3DXVECTOR2 pt) {
-	r.left += p.x;
-	r.right += p.x;
-	r.top += p.y;
-	r.bottom += p.y;
-
-	return (pt.x > r.left && pt.x<r.right && pt.y > r.top && pt.y < r.bottom);
+bool Object::IsPointInRect(D3DXVECTOR2 p) {
+	return (p.x > rect.left + pos.x && p.x<rect.right + pos.x && p.y > rect.top + pos.y && p.y < rect.bottom + pos.y);
 }
 D3DXMATRIX Object::getMat() {
 	return mat;
 }
 D3DXVECTOR2 Object::getPos(){
 	return pos;
+}
+RECT Object::getRect() {
+	return rect;
 }
 int Object::getPosX() {
 	return pos.x;

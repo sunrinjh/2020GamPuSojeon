@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A95927E6-EC0A-4B6A-9781-7783326B3FF7}</ProjectGuid>
+    <RootNamespace>ZeroEngine</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\debug</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>$(DXSDK_DIR)\Include;../fmod/Include;Include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+    <TargetName>ZeroEngine-Debug</TargetName>
+    <LibraryPath>Lib;$(DXSDK_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;../fmod/Include;Include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+    <TargetName>ZeroEngine-Debug-x64</TargetName>
+    <LibraryPath>Lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+    <OutDir>..\..\ZeroEngine-Example\ZeroEngine\Lib\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\release</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>$(DXSDK_DIR)\Include;../fmod/Include;Include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+    <TargetName>ZeroEngine-Release</TargetName>
+    <LibraryPath>Lib;$(DXSDK_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;../fmod/Include;Include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+    <TargetName>ZeroEngine-Release-x64</TargetName>
+    <LibraryPath>Lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <OutDir>..\..\ZeroEngine-Example\ZeroEngine\Lib\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\Include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib />
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+      <Message>XCOPY $(ProjectDir)*.h /Y $(ProjectDir)..\..\ZeroPractice\ZeroPractice\Include /EXCLUDE:ExcludeWhenCopy.txt</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib />
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>XCOPY $(ProjectDir)*.h /Y $(ProjectDir)..\..\ZeroEngine-Example\ZeroEngine\Include /EXCLUDE:ExcludeWhenCopy.txt</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\Include;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+      <Message>XCOPY $(ProjectDir)*.h /Y $(ProjectDir)..\..\ZeroPractice\ZeroPractice\Include /EXCLUDE:ExcludeWhenCopy.txt</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>XCOPY $(ProjectDir)*.h /Y $(ProjectDir)..\..\ZeroEngine-Example\ZeroEngine\Include /EXCLUDE:ExcludeWhenCopy.txt</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Zero.h" />
+    <ClInclude Include="ZeroAnimation.h" />
+    <ClInclude Include="ZeroApplication.h" />
+    <ClInclude Include="ZeroCameraManager.h" />
+    <ClInclude Include="ZeroConsole.h" />
+    <ClInclude Include="ZeroCursorManager.h" />
+    <ClInclude Include="ZeroEffectManager.h" />
+    <ClInclude Include="ZeroFont.h" />
+    <ClInclude Include="ZeroFxBloom.h" />
+    <ClInclude Include="ZeroFxBlurH.h" />
+    <ClInclude Include="ZeroFxBlurV.h" />
+    <ClInclude Include="ZeroFxEdgeDetect.h" />
+    <ClInclude Include="ZeroFxFlashLight.h" />
+    <ClInclude Include="ZeroFxGaugeWave.h" />
+    <ClInclude Include="ZeroFxGlass.h" />
+    <ClInclude Include="ZeroFxGrayTone.h" />
+    <ClInclude Include="ZeroFxNightVision.h" />
+    <ClInclude Include="ZeroFxRadialBlur.h" />
+    <ClInclude Include="ZeroFxSepiaTone.h" />
+    <ClInclude Include="ZeroFxShake.h" />
+    <ClInclude Include="ZeroFxWaveFade.h" />
+    <ClInclude Include="ZeroIEffect.h" />
+    <ClInclude Include="ZeroInputManager.h" />
+    <ClInclude Include="ZeroIParticle.h" />
+    <ClInclude Include="ZeroIScene.h" />
+    <ClInclude Include="ZeroIShader.h" />
+    <ClInclude Include="ZeroLine.h" />
+    <ClInclude Include="ZeroMat.h" />
+    <ClInclude Include="ZeroMathManager.h" />
+    <ClInclude Include="ZeroParticleSprite.h" />
+    <ClInclude Include="ZeroProcessMonitor.h" />
+    <ClInclude Include="ZeroRect.h" />
+    <ClInclude Include="ZeroRegulator.h" />
+    <ClInclude Include="ZeroRenderTarget.h" />
+    <ClInclude Include="ZeroRenderTargetManager.h" />
+    <ClInclude Include="ZeroResource.h" />
+    <ClInclude Include="ZeroResourceManager.h" />
+    <ClInclude Include="ZeroRingBuffer.h" />
+    <ClInclude Include="ZeroSceneManager.h" />
+    <ClInclude Include="ZeroShaderManager.h" />
+    <ClInclude Include="ZeroSoundManager.h" />
+    <ClInclude Include="ZeroSprite.h" />
+    <ClInclude Include="ZeroSpriteManager.h" />
+    <ClInclude Include="ZeroTextureManager.h" />
+    <ClInclude Include="ZeroTransition.h" />
+    <ClInclude Include="ZeroTrBandedSwirl.h" />
+    <ClInclude Include="ZeroTrCircleReveal.h" />
+    <ClInclude Include="ZeroTrCircleStretch.h" />
+    <ClInclude Include="ZeroTrCloudReveal.h" />
+    <ClInclude Include="ZeroTrCrumble.h" />
+    <ClInclude Include="ZeroTrDropFade.h" />
+    <ClInclude Include="ZeroTrFade.h" />
+    <ClInclude Include="ZeroTrPixelate.h" />
+    <ClInclude Include="ZeroTrRadialBlur.h" />
+    <ClInclude Include="ZeroTrRadialWiggle.h" />
+    <ClInclude Include="ZeroTrRandomCircleReveal.h" />
+    <ClInclude Include="ZeroTrRipple.h" />
+    <ClInclude Include="ZeroTrRotateCrumble.h" />
+    <ClInclude Include="ZeroTrSaturate.h" />
+    <ClInclude Include="ZeroTrSlideIn.h" />
+    <ClInclude Include="ZeroTrSmoothSwirlGrid.h" />
+    <ClInclude Include="ZeroVec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ZeroAnimation.cpp" />
+    <ClCompile Include="ZeroApplication.cpp" />
+    <ClCompile Include="ZeroCameraManager.cpp" />
+    <ClCompile Include="ZeroConsole.cpp" />
+    <ClCompile Include="ZeroCursorManager.cpp" />
+    <ClCompile Include="ZeroEffectManager.cpp" />
+    <ClCompile Include="ZeroFont.cpp" />
+    <ClCompile Include="ZeroFxBloom.cpp" />
+    <ClCompile Include="ZeroFxBlurH.cpp" />
+    <ClCompile Include="ZeroFxBlurV.cpp" />
+    <ClCompile Include="ZeroFxEdgeDetect.cpp" />
+    <ClCompile Include="ZeroFxFlashLight.cpp" />
+    <ClCompile Include="ZeroFxGaugeWave.cpp" />
+    <ClCompile Include="ZeroFxGlass.cpp" />
+    <ClCompile Include="ZeroFxGrayTone.cpp" />
+    <ClCompile Include="ZeroFxNightVision.cpp" />
+    <ClCompile Include="ZeroFxRadialBlur.cpp" />
+    <ClCompile Include="ZeroFxSepiaTone.cpp" />
+    <ClCompile Include="ZeroFxShake.cpp" />
+    <ClCompile Include="ZeroFxWaveFade.cpp" />
+    <ClCompile Include="ZeroIEffect.cpp" />
+    <ClCompile Include="ZeroInputManager.cpp" />
+    <ClCompile Include="ZeroIParticle.cpp" />
+    <ClCompile Include="ZeroIScene.cpp" />
+    <ClCompile Include="ZeroIShader.cpp" />
+    <ClCompile Include="ZeroLine.cpp" />
+    <ClCompile Include="ZeroMat.cpp" />
+    <ClCompile Include="ZeroMathManager.cpp" />
+    <ClCompile Include="ZeroParticleSprite.cpp" />
+    <ClCompile Include="ZeroProcessMonitor.cpp" />
+    <ClCompile Include="ZeroRenderTarget.cpp" />
+    <ClCompile Include="ZeroRenderTargetManager.cpp" />
+    <ClCompile Include="ZeroResource.cpp" />
+    <ClCompile Include="ZeroResourceManager.cpp" />
+    <ClCompile Include="ZeroSceneManager.cpp" />
+    <ClCompile Include="ZeroShaderManager.cpp" />
+    <ClCompile Include="ZeroSoundManager.cpp" />
+    <ClCompile Include="ZeroSprite.cpp" />
+    <ClCompile Include="ZeroSpriteManager.cpp" />
+    <ClCompile Include="ZeroTextureManager.cpp" />
+    <ClCompile Include="ZeroTrBandedSwirl.cpp" />
+    <ClCompile Include="ZeroTrCircleReveal.cpp" />
+    <ClCompile Include="ZeroTrCircleStretch.cpp" />
+    <ClCompile Include="ZeroTrCloudReveal.cpp" />
+    <ClCompile Include="ZeroTrCrumble.cpp" />
+    <ClCompile Include="ZeroTrDropFade.cpp" />
+    <ClCompile Include="ZeroTrFade.cpp" />
+    <ClCompile Include="ZeroTrPixelate.cpp" />
+    <ClCompile Include="ZeroTrRadialBlur.cpp" />
+    <ClCompile Include="ZeroTrRadialWiggle.cpp" />
+    <ClCompile Include="ZeroTrRandomCircleReveal.cpp" />
+    <ClCompile Include="ZeroTrRipple.cpp" />
+    <ClCompile Include="ZeroTrRotateCrumble.cpp" />
+    <ClCompile Include="ZeroTrSaturate.cpp" />
+    <ClCompile Include="ZeroTrSlideIn.cpp" />
+    <ClCompile Include="ZeroTrSmoothSwirlGrid.cpp" />
+    <ClCompile Include="ZeroVec.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

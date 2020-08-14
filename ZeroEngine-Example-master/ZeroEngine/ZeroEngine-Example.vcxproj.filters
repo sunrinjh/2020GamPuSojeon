@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Examples">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Examples\01. SpriteExample">
+      <UniqueIdentifier>{165d3d34-2518-4892-a687-7787e4d038f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\02. InputManagerExample">
+      <UniqueIdentifier>{69d036f4-7c0c-4193-8eca-dd7f5159990b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\03. LineExample">
+      <UniqueIdentifier>{27fddfe2-5198-4d92-908b-2d931685b26f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\04. FontExample">
+      <UniqueIdentifier>{ec3b2b46-404b-43ae-b9f5-748cf99c94f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\05. FPSExample">
+      <UniqueIdentifier>{1ff46876-09a6-4613-9ccb-21b5279bca35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\06. MathManagerExample">
+      <UniqueIdentifier>{e2cda78a-22a3-4bb6-ba86-37835088e911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\07. SceneManagerExample">
+      <UniqueIdentifier>{19363a9a-e327-486f-ae38-32006bf569e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\08. AnimationExample">
+      <UniqueIdentifier>{d3de7378-9d99-454b-acc7-3e979b5c6468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\09. ParticleExample">
+      <UniqueIdentifier>{693d4fd5-c2ce-42f8-bfed-65cc01aa325c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\10. RenderTargetExample">
+      <UniqueIdentifier>{45c4b56f-62ac-4f59-a05c-b97ee0409427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\11. ShaderExample">
+      <UniqueIdentifier>{a3ba7539-464e-423a-acfa-6d6e61a5e364}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\12. CameraExample">
+      <UniqueIdentifier>{5d3ade9d-0175-402f-921f-cdeb2f879624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples\13. SoundExample">
+      <UniqueIdentifier>{e85895be-ea7c-42d8-a13a-b7385bbe7105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WinMain">
+      <UniqueIdentifier>{69884c26-f183-4c1f-bf16-01a9578cb481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompiled Code">
+      <UniqueIdentifier>{90838b63-ee84-4194-a0c8-a550ff2b8a78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Examples.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteExample.h">
+      <Filter>Examples\01. SpriteExample</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManagerExample.h">
+      <Filter>Examples\02. InputManagerExample</Filter>
+    </ClInclude>
+    <ClInclude Include="LineExample.h">
+      <Filter>Examples\03. LineExample</Filter>
+    </ClInclude>
+    <ClInclude Include="FontExample.h">
+      <Filter>Examples\04. FontExample</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSExample.h">
+      <Filter>Examples\05. FPSExample</Filter>
+    </ClInclude>
+    <ClInclude Include="MathManagerExample.h">
+      <Filter>Examples\06. MathManagerExample</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManagerExample.h">
+      <Filter>Examples\07. SceneManagerExample</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationExample.h">
+      <Filter>Examples\08. AnimationExample</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleExample.h">
+      <Filter>Examples\09. ParticleExample</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetExample.h">
+      <Filter>Examples\10. RenderTargetExample</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderExample.h">
+      <Filter>Examples\11. ShaderExample</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraExample.h">
+      <Filter>Examples\12. CameraExample</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundExample.h">
+      <Filter>Examples\13. SoundExample</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ZeroEngine\ZeroEngine\stdafx.h">
+      <Filter>Precompiled Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SpriteExample.cpp">
+      <Filter>Examples\01. SpriteExample</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManagerExample.cpp">
+      <Filter>Examples\02. InputManagerExample</Filter>
+    </ClCompile>
+    <ClCompile Include="LineExample.cpp">
+      <Filter>Examples\03. LineExample</Filter>
+    </ClCompile>
+    <ClCompile Include="FontExample.cpp">
+      <Filter>Examples\04. FontExample</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSExample.cpp">
+      <Filter>Examples\05. FPSExample</Filter>
+    </ClCompile>
+    <ClCompile Include="MathManagerExample.cpp">
+      <Filter>Examples\06. MathManagerExample</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManagerExample.cpp">
+      <Filter>Examples\07. SceneManagerExample</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationExample.cpp">
+      <Filter>Examples\08. AnimationExample</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleExample.cpp">
+      <Filter>Examples\09. ParticleExample</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetExample.cpp">
+      <Filter>Examples\10. RenderTargetExample</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderExample.cpp">
+      <Filter>Examples\11. ShaderExample</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraExample.cpp">
+      <Filter>Examples\12. CameraExample</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundExample.cpp">
+      <Filter>Examples\13. SoundExample</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>WinMain</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Precompiled Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

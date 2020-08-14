@@ -90,6 +90,12 @@
     <ClCompile Include="Number.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -132,6 +138,12 @@
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
     <ClInclude Include="Number.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
   </ItemGroup>

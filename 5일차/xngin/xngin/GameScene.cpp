@@ -1,17 +1,19 @@
 #include "stdafx.h"
 #include "GameScene.h"
 GameScene::GameScene() {
-	firstBackground = false;
+	backgroundInstantiate = false;
 	scrollSpeed = 500;
-	gravity = 0;
-	isJump = false;
-	doubleJump = false;
 	score = 0;
 
-	backgroundList.push_back(new Sprite("Resources/Sprites/Background.png"));
-	Sprite* tmpBackground = new Sprite("Resources/Sprites/Background2.png");
-	tmpBackground->setPos(SCREEN_WIDTH,0);
-	backgroundList.push_back(tmpBackground);
+	Background* background = new Background();
+	background->setPos(0,0);
+	backgroundList.push_back(background);
+	AddObject(background);
+
+	Background* tbackground = new Background();
+	tbackground->setPos(0, 0);
+	backgroundList.push_back(tbackground);
+	AddObject(tbackground);
 
 	Sprite* tmpBridge = new Sprite("Resources/Sprites/LoopMap.png");
 	tmpBridge->setPos(0, 560);
@@ -26,18 +28,15 @@ GameScene::GameScene() {
 	coinList.push_back(tmpCoin);
 
 
-	Sprite* tmpObstacle = new Sprite("Resources/Sprites/Drop.png");
+	Sprite* tmpObstacle = new Sprite("Resources/Sprites/obstacle01.jpg");
 	tmpObstacle->setPos(SCREEN_WIDTH, 500);
 	obstacleList.push_back(tmpObstacle);
-
-	player = new Animation(50);
-	player->AddFrame("Resources/Sprites/player1.png");
-	player->AddFrame("Resources/Sprites/player2.png");
-	player->setPos(50, 100);
 	
 	for (int i = 0; i < 4; i++) {
 		numArray[i].setPos(0 + 60 * i, 10);
 	}
+	player = new Player();
+	player->setPos(100, 100);
 }
 GameScene::~GameScene() {
 
@@ -61,6 +60,8 @@ void GameScene::Render() {
 	player->Render();
 }
 void GameScene::Update(float dTime) {
+	player->Update(dTime);
+	
 	Scene::Update(dTime);
 	int randNum = rand() % 10 + 1;
 
@@ -73,54 +74,29 @@ void GameScene::Update(float dTime) {
 	numArray[1].setNum(score / 100 % 10);
 	numArray[2].setNum(score / 10 % 10 );
 	numArray[3].setNum(score % 10);
-	gravity += 9.8f;
-	player->setPos(player->getPosX(), player->getPosY() + gravity * dTime);
-	if (isJump) {
-		player->setPos(player->getPosX(), player->getPosY() - 360 * dTime);
-		if (doubleJump) {
-			player->setPos(player->getPosX(), player->getPosY() - 300 * dTime);
-		}
-		if (inputManager->GetKeyState(VK_UP) == KEY_DOWN || inputManager->GetKeyState(VK_SPACE) == KEY_DOWN) {
-			doubleJump = true;
-		}
-	}
-	if (player->getPosY() > 370) {
-		player->setPos(player->getPosX(), 370);
-		doubleJump = false;
-		isJump = false;
-	}
-	if (inputManager->GetKeyState(VK_UP) == KEY_DOWN || inputManager->GetKeyState(VK_SPACE) == KEY_DOWN) {
-		if (player->getPosY() == 370) {
-			isJump = true;
-			gravity = 0;
-		}
-	}
 
-	player->Update(dTime);
 	int backgroundDiff = scrollSpeed * dTime;
 	scrollSpeed +=0.1f;
-	for (auto iter = backgroundList.begin(); iter != backgroundList.end(); iter++ ) {
+
+	for (auto iter = backgroundList.begin(); iter != backgroundList.end(); iter++) {
 		(*iter)->setPos((*iter)->getPosX() - backgroundDiff, (*iter)->getPosY());
-		if ((*iter)->getPosX() < -SCREEN_WIDTH ) { // 여기서 10은 조절해도댐
+		if ((*iter)->getPosX() < -SCREEN_WIDTH) { // 여기서 10은 조절해도댐
+			RemoveObject((*iter));
 			SAFE_DELETE(*iter);
 			iter = backgroundList.erase(iter);
-			if (firstBackground) {
-				Sprite* tmpBackground = new Sprite("Resources/Sprites/Background2.png");
-				tmpBackground->setPos(SCREEN_WIDTH, 0);
-				backgroundList.push_back(tmpBackground);
-				firstBackground = false;
-			}
-			else {
-				Sprite* tmpBackground = new Sprite("Resources/Sprites/Background.png");
-				tmpBackground->setPos(SCREEN_WIDTH, 0);
-				backgroundList.push_back(tmpBackground);
-				firstBackground = true;
-
-			}
+			backgroundInstantiate = false;
 			if (iter == backgroundList.end()) {
 				break;
 			}
 		}
+	}	
+	if (!backgroundInstantiate) {
+		Background* background = new Background();
+		background->setPos(SCREEN_WIDTH, 0);
+		backgroundList.push_back(background);
+		AddObject(background);
+		backgroundInstantiate = true;
+		background->setBackgroundDiff(backgroundDiff);
 	}
 	for (auto iter = bridgeList.begin(); iter != bridgeList.end(); iter++) {
 		(*iter)->setPos((*iter)->getPosX() - backgroundDiff, (*iter)->getPosY());
@@ -131,7 +107,7 @@ void GameScene::Update(float dTime) {
 			Sprite* tempBridge = new Sprite("Resources/Sprites/LoopMap.png");
 			tempBridge->setPos(SCREEN_WIDTH, 560);
 			bridgeList.push_back(tempBridge);
-
+			backgroundInstantiate = false;
 			if (iter == bridgeList.end()) {
 				break;
 			}
@@ -139,11 +115,6 @@ void GameScene::Update(float dTime) {
 	}
 	for (auto iter = coinList.begin(); iter != coinList.end(); iter++) {
 		(*iter)->setPos((*iter)->getPosX() - backgroundDiff, (*iter)->getPosY());
-		if (player->IsCollisionRect(*iter)) {
-			score++;
-			SAFE_DELETE(*iter);
-			iter = coinList.erase(iter);
-		}
 		if ((*iter)->getPosX() < -SCREEN_WIDTH) { // 여기서 10은 조절해도댐
 			SAFE_DELETE(*iter);
 			iter = coinList.erase(iter);
@@ -152,7 +123,16 @@ void GameScene::Update(float dTime) {
 			}
 		}
 	}
-
+	for (auto iter = coinList.begin(); iter != coinList.end(); iter++) {
+		if (player->IsCollisionRect(*iter)) {
+			score++;
+			SAFE_DELETE(*iter);
+			iter = coinList.erase(iter);
+			if (iter == coinList.end()) {
+				break;
+			}
+		}
+	}
 	for (auto iter = obstacleList.begin(); iter != obstacleList.end(); iter++) {
 		(*iter)->setPos((*iter)->getPosX() - backgroundDiff, (*iter)->getPosY());
 		if (player->IsCollisionRect(*iter)) {
@@ -162,10 +142,65 @@ void GameScene::Update(float dTime) {
 		if ((*iter)->getPosX() < -SCREEN_WIDTH) { // 여기서 10은 조절해도댐
 			SAFE_DELETE(*iter);
 			iter = obstacleList.erase(iter);
+			int randomSprite = rand() % 17 + 1;
+			Sprite* tmpObstacle;
+			switch (randomSprite)
+			{
+				
+			case 1:
+				 tmpObstacle = new Sprite("Resources/Sprites/obstacle01.jpg");
+				 break;
+			case 2:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle02.jpg");
+				break;
+			case 3:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle03.jpg");
+				break;
+			case 4:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle04.jpg");
+				break;
+			case 5:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle05.jpg");
+				break;
+			case 6:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle06.jpg");
+				break;
+			case 7:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle07.jpg");
+				break;
+			case 8:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle08.jpg");
+				break;
+			case 9:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle09.jpg");
+				break;
+			case 10:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle10.jpg");
+				break;
+			case 11:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle11.jpg");
+				break;
+			case 12:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle12.jpg");
+				break;
+			case 13:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle13.jpg");
+				break;
+			case 14:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle14.jpg");
+				break;
+			case 15:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle15.jpg");
+				break;
+			case 16:
+				tmpObstacle = new Sprite("Resources/Sprites/obstacle16.jpg");
+				break;
 
-			Sprite* tmpObstacle = new Sprite("Resources/Sprites/Drop.png");
+			}
 			tmpObstacle->setPos(SCREEN_WIDTH, 500);
 			obstacleList.push_back(tmpObstacle);
+			
+			
 			if (iter == obstacleList.end()) {
 				break;
 			}

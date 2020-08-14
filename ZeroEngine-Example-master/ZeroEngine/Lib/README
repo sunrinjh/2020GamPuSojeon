@@ -1,0 +1,3 @@
+https://github.com/zer0pen/ZeroEngine/releases에서 ZeroEngine 라이브러리 파일을 다운로드받아 이 폴더에 붙여넣으시면 됩니다.
+Debug: ZeroEngine_Debug.lib
+Release: ZeroEngine_Release.lib

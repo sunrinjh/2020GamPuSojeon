@@ -6,7 +6,7 @@ GameScene::GameScene() {
 	gravity = 0;
 	isJump = false;
 	doubleJump = false;
-
+	score = 0;
 
 	backgroundList.push_back(new Sprite("Resources/Sprites/Background.png"));
 	Sprite* tmpBackground = new Sprite("Resources/Sprites/Background2.png");
@@ -22,7 +22,7 @@ GameScene::GameScene() {
 	bridgeList.push_back(tempBridge);
 
 	Sprite* tmpCoin = new Sprite("Resources/Sprites/coin-yellow.png");
-	tmpCoin->setPos(SCREEN_WIDTH, 400);
+	tmpCoin->setPos(SCREEN_WIDTH + 70, 400);
 	coinList.push_back(tmpCoin);
 
 
@@ -35,7 +35,9 @@ GameScene::GameScene() {
 	player->AddFrame("Resources/Sprites/player2.png");
 	player->setPos(50, 100);
 	
-	
+	for (int i = 0; i < 4; i++) {
+		numArray[i].setPos(0 + 60 * i, 10);
+	}
 }
 GameScene::~GameScene() {
 
@@ -53,14 +55,28 @@ void GameScene::Render() {
 	for (auto& coin : coinList) {
 		coin->Render();
 	}
+	for (int i = 0; i < 4; i++) {
+		numArray[i].Render();
+	}
 	player->Render();
 }
 void GameScene::Update(float dTime) {
 	Scene::Update(dTime);
+	int randNum = rand() % 10 + 1;
+
+	if ((rand() % 10 + 1) == 1) {
+		Sprite* tmpCoin = new Sprite("Resources/Sprites/coin-yellow.png");
+		tmpCoin->setPos(SCREEN_WIDTH + 100, 400);
+		coinList.push_back(tmpCoin);
+	}
+	numArray[0].setNum(score / 1000);
+	numArray[1].setNum(score / 100 % 10);
+	numArray[2].setNum(score / 10 % 10 );
+	numArray[3].setNum(score % 10);
 	gravity += 9.8f;
 	player->setPos(player->getPosX(), player->getPosY() + gravity * dTime);
 	if (isJump) {
-		player->setPos(player->getPosX(), player->getPosY() - 400 * dTime);
+		player->setPos(player->getPosX(), player->getPosY() - 360 * dTime);
 		if (doubleJump) {
 			player->setPos(player->getPosX(), player->getPosY() - 300 * dTime);
 		}
@@ -124,15 +140,13 @@ void GameScene::Update(float dTime) {
 	for (auto iter = coinList.begin(); iter != coinList.end(); iter++) {
 		(*iter)->setPos((*iter)->getPosX() - backgroundDiff, (*iter)->getPosY());
 		if (player->IsCollisionRect(*iter)) {
-
+			score++;
+			SAFE_DELETE(*iter);
+			iter = coinList.erase(iter);
 		}
 		if ((*iter)->getPosX() < -SCREEN_WIDTH) { // 여기서 10은 조절해도댐
 			SAFE_DELETE(*iter);
 			iter = coinList.erase(iter);
-
-			Sprite* tmpCoin = new Sprite("Resources/Sprites/coin-yellow.png");
-			tmpCoin->setPos(SCREEN_WIDTH, 400);
-			coinList.push_back(tmpCoin);
 			if (iter == coinList.end()) {
 				break;
 			}
